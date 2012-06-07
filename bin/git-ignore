@@ -1,0 +1,10 @@
+#!/bin/bash
+
+# Purpose:  arrange for git to ignore the given fils
+
+for f in "$@"; do
+   echo "$f" >> .gitignore
+done
+
+git add .gitignore
+
