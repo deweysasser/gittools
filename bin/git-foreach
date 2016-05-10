@@ -1,0 +1,10 @@
+#!/bin/bash
+
+# Purpose:  run git in each git subrepo
+
+for d in . *; do
+    if [ -d $d/.git ] ; then
+	echo "# '$d':"
+	git -C $d "$@" | awk '{printf "  "; print}'
+    fi
+done
