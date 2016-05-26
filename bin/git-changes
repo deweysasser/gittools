@@ -1,0 +1,23 @@
+#!/bin/bash
+
+# Purpose:  show just the changes for a commit
+
+set -e
+set -u
+
+usage() {
+    cat <<EOF
+Usage:  git changes COMMITISH
+
+Show changes made in the given commit *only*.  COMMITISH can be a
+commit id or symbolic ref.
+
+EOF
+}
+
+if [ -z "$*" ] ; then
+    usage
+    exit 1
+fi
+
+git diff $1^..$1
